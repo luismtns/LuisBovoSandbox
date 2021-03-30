@@ -16,7 +16,7 @@ const config = {
   },
   production: {
     path: "/",
-    baseUrl: `http://${host}:${port}`,
+    baseUrl: "",
     endpoint: "https://figurate-desks.000webhostapp.com/wp-json",
   },
 };
