@@ -7,7 +7,7 @@ const config = {
   development: {
     path: "/",
     baseUrl: `http://${host}:${port}`,
-    endpoint: "http://localhost/wordpress/wp-json",
+    endpoint: "https://figurate-desks.000webhostapp.com/wp-json",
   },
   test: {
     path: "/",

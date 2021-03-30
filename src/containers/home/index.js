@@ -31,10 +31,12 @@ class HomeContainer extends React.Component {
         <Loader visible={isLoading} />
         {entries &&
           entries.map((e) => {
+            const { acf } = e;
             return (
               <div key={e.id}>
-                <h1>{e.title.rendered}</h1>
-                <ConvertHtml html={e.content.rendered} />
+                <h1>{acf.titulo_do_projeto}</h1>
+                {acf.capa && <img src={acf.capa.sizes.large} />}
+                <ConvertHtml html={acf.conteudo} />
                 <br />
                 <br />
               </div>

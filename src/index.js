@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "@config/Redux";
 import routes from "@config/routes";
 
-import "@config/stylesheets/Application.scss";
+import "@config/stylesheets/application.scss";
 
 import {
   changeScrollTop,
