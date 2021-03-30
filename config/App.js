@@ -12,12 +12,12 @@ const config = {
   test: {
     path: "/",
     baseUrl: `http://${host}:${port}`,
-    endpoint: "",
+    endpoint: "https://figurate-desks.000webhostapp.com/wp-json",
   },
   production: {
     path: "/",
-    baseUrl: "",
-    endpoint: "",
+    baseUrl: `http://${host}:${port}`,
+    endpoint: "https://figurate-desks.000webhostapp.com/wp-json",
   },
 };
 
