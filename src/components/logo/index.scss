@@ -1,0 +1,51 @@
+.Logo {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $black;
+  &--wrap {
+    position: relative;
+    clear: none;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 50%;
+  }
+  .LazyImage {
+    position: absolute;
+    clear: both;
+    float: none;
+    will-change: auto;
+    transition: transform 400ms 0.1s ease-in-out;
+  }
+  &__circle {
+    max-width: 80%;
+    // animation: easeRotate 8s cubic-bezier(0.63, -0.52, 0.45, 1.67) 0s infinite
+    //   alternate;
+  }
+  &__typo {
+    max-width: 80%;
+  }
+  &__gengar {
+    margin-left: -5%;
+    max-width: 50%;
+    max-height: 90%;
+  }
+  &__gengar--outlined {
+    @extend .Logo__gengar;
+  }
+}
+
+@keyframes easeRotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(4deg);
+  }
+}

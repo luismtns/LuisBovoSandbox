@@ -8,6 +8,7 @@ import * as selectors from "@data/posts/PostsSelectors";
 import "./index.scss";
 import ConvertHtml from "@components/convert-html";
 import Loader from "./../../components/loader/index";
+import LazyImage from "./../../components/lazy-image/index";
 
 class HomeContainer extends React.Component {
   constructor(props) {
@@ -35,7 +36,12 @@ class HomeContainer extends React.Component {
             return (
               <div key={e.id}>
                 <h1>{acf.titulo_do_projeto}</h1>
-                {acf.capa && <img src={acf.capa.sizes.large} />}
+                {acf.capa && (
+                  <LazyImage
+                    src={acf.capa.sizes.large}
+                    alt={`Luis Bovo designer and developer - project ${acf.titulo_do_projeto}`}
+                  />
+                )}
                 <ConvertHtml html={acf.conteudo} />
                 <br />
                 <br />
