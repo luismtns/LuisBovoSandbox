@@ -1,25 +1,22 @@
-import React, { Suspense }  from 'react';
-import { ConnectedRouter } from 'connected-react-router';
+import React, { Suspense } from "react";
+import { ConnectedRouter } from "connected-react-router";
 
-import {
-  Switch,
-  Route,
-} from 'react-router-dom';
+import { Switch, Route } from "react-router-dom";
 
-import history from './History';
-import ScrollToTop from './ScrollToTop';
+import history from "./History";
+import ScrollToTop from "./ScrollToTop";
 
-import ApplicationLayout from '@views/layouts/ApplicationLayout';
+import ApplicationLayout from "@views/layouts/ApplicationLayout";
 
-const HomeView = React.lazy(() => import('@views/home'));
-const NotFoundView = React.lazy(() => import('@views/errors/NotFound'));
+const HomeView = React.lazy(() => import("@views/home"));
+const NotFoundView = React.lazy(() => import("@views/errors/NotFound"));
 
-import Loader from '@components/loader';
+import Loader from "@components/loader";
 
 export default () => {
   return (
     <ConnectedRouter history={history}>
-      <ApplicationLayout>
+      <ApplicationLayout history={history}>
         <ScrollToTop />
 
         <Suspense fallback={<Loader visible />}>

@@ -13,17 +13,33 @@ const Logo = () => {
   const [ClientXGengar, setClientXGengar] = useState(0);
   const [ClientYGengar, setClientYGengar] = useState(0);
 
-  const onMouseMove = (e) => {};
+  let timer = null;
+  const handleMouseMove = (e) => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      console.log("👋");
+      setClientXGengar(Math.floor(window.innerWidth / 2 - e.clientX) * 0.05);
+      setClientYGengar(Math.floor(window.innerHeight / 5 - e.clientY) * 0.05);
+    }, 200);
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (timer) clearTimeout(timer);
+    };
+  }, []);
+
   return (
-    <div
-      onMouseMove={(e) => {
-        setClientXGengar(Math.floor(window.innerWidth / 2 - e.clientX) * 0.05);
-        setClientYGengar(Math.floor(window.innerHeight / 5 - e.clientY) * 0.05);
-      }}
-      className="Logo"
-    >
+    <div className="Logo">
       <div className="Logo--wrap">
         <LazyImage
+          style={{
+            transform: `translate(${-(ClientXGengar / 3)}px,${-(
+              ClientYGengar / 3
+            )}px)`,
+          }}
           src={LogoTypoImage}
           className="Logo__typo"
           alt="Luis Bovo designer and developer logo circle"

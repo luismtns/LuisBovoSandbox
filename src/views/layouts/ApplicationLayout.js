@@ -1,20 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 
-import NotificationContainer from '@containers/notification';
+import NotificationContainer from "@containers/notification";
 
 export default class ApplicationLayout extends React.Component {
-
   render() {
+    const { children } = this.props;
+
     return (
       <React.Fragment>
-        {this.props.children}
+        {children}
 
         <NotificationContainer />
       </React.Fragment>
     );
   }
-
 }
 
 ApplicationLayout.propTypes = {

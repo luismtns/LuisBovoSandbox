@@ -1,7 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,300,200,900,700italic,600,600italic);
+@import "~reset-css";
 
-@import '~reset-css';
-
+@import "fonts";
 * {
   outline: none;
   box-sizing: border-box;
@@ -10,5 +9,7 @@
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  background-color: $black;
+  color: $white;
+  font-family: "Share Tech Mono", sans-serif;
 }
