@@ -7,8 +7,11 @@ import * as selectors from "@data/posts/PostsSelectors";
 
 import "./index.scss";
 import ConvertHtml from "@components/convert-html";
-import Loader from "./../../components/loader/index";
-import LazyImage from "./../../components/lazy-image/index";
+import Loader from "@components/loader/index";
+import LazyImage from "@components/lazy-image/index";
+import Postlist from "@components/postlist/index";
+import Logo from "@components/logo";
+import TypingAnimator from "../../components/typing-animator";
 
 class HomeContainer extends React.Component {
   constructor(props) {
@@ -29,25 +32,20 @@ class HomeContainer extends React.Component {
     console.log(entries);
     return (
       <div className="HomeContainer">
-        <Loader visible={isLoading} />
-        {entries &&
-          entries.map((e) => {
-            const { acf } = e;
-            return (
-              <div key={e.id}>
-                <h1>{acf.titulo_do_projeto}</h1>
-                {acf.capa && (
-                  <LazyImage
-                    src={acf.capa.sizes.large}
-                    alt={`Luis Bovo designer and developer - project ${acf.titulo_do_projeto}`}
-                  />
-                )}
-                <ConvertHtml html={acf.conteudo} />
-                <br />
-                <br />
-              </div>
-            );
-          })}
+        <Logo />
+        <TypingAnimator>
+          <h1>Olá! Seja bem-vindo, sou um designer e desenvolvedor web</h1>
+          <h2>Aqui disponiblizo trabalhos mais superlativos.</h2>
+          <br />
+          <h4>
+            Se deseja iniciar um projeto,{" "}
+            <a href="mailto:luis.mtns@gmail.com" target="_blank">
+              conte-me mais sobre
+            </a>
+            !
+          </h4>
+        </TypingAnimator>
+        {/* <Postlist entries={entries} isLoading={isLoading} /> */}
       </div>
     );
   }

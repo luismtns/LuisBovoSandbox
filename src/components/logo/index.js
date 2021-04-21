@@ -8,6 +8,7 @@ import LogoGengarImage from "./images/Logo__gengar.png";
 import LogoTypoImage from "./images/Logo__typo.png";
 import LogoCircleImage from "./images/Logo__circle.png";
 import LazyImage from "../lazy-image";
+import TypingAnimator from "./../typing-animator/index";
 
 const Logo = () => {
   const [ClientXGengar, setClientXGengar] = useState(0);
@@ -17,10 +18,9 @@ const Logo = () => {
   const handleMouseMove = (e) => {
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
-      console.log("👋");
       setClientXGengar(Math.floor(window.innerWidth / 2 - e.clientX) * 0.05);
       setClientYGengar(Math.floor(window.innerHeight / 5 - e.clientY) * 0.05);
-    }, 200);
+    }, 100);
   };
 
   useEffect(() => {
